@@ -1,9 +1,31 @@
-function showDetails(parallel) {
-    const detailsContent = document.getElementById("details-content");
-    const details = {
-        heart: "Le coeur de l'océan, comme celui de l'humain, permet la circulation vitale : les courants marins transportent chaleur et nutriments.",
-        lungs: "Les poumons de l'océan, représentés par le phytoplancton, échangent gaz et oxygène, maintenant la vie sur Terre.",
-        plankton: "Le plancton dans l'océan agit comme les cellules du corps : une base essentielle pour le fonctionnement global."
-    };
-    detailsContent.textContent = details[parallel] || "Sélectionnez un parallèle pour plus d'informations.";
+import * as THREE from "three";
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer();
+renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
+
+const geometry = new THREE.BoxGeometry();
+const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+const cube = new THREE.Mesh(geometry, material);
+scene.add(cube);
+
+camera.position.z = 5;
+
+const animate = () => {
+    requestAnimationFrame(animate);
+    cube.rotation.x += 0.01;
+    cube.rotation.y += 0.01;
+    renderer.render(scene, camera);
 }
+
+animate();
+
+const resizeWindow = () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+};
+
+window.addEventListener('resize', resizeWindow);

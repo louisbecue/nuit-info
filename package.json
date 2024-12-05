@@ -1,0 +1,17 @@
+{
+  "name": "nuitinfo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "dev": "http-server ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "three": "^0.171.0"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

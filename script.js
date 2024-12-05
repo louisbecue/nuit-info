@@ -33,11 +33,13 @@ function randomScroll(event) {
 // Écouteur pour la molette de la souris (défilement via molette)
 window.addEventListener('wheel', function(event) {
     randomScroll(event);
+    positionRandomLogo();
 }, { passive: false }); // Empêcher le comportement natif du défilement
 
 // Écouteur pour la barre de défilement
 window.addEventListener('scroll', function(event) {
     randomScroll(event);
+    positionRandomLogo();
 }, { passive: false }); // Empêcher le comportement natif du défilement
 
 // Fonction pour afficher les détails du parallèle
@@ -60,8 +62,8 @@ const logoHeight = 50; // Hauteur du logo
 
 // Fonction pour positionner le logo de manière aléatoire et s'assurer qu'il reste visible
 function positionRandomLogo() {
-    const bodyWidth = document.body.offsetWidth;
-    const bodyHeight = document.body.offsetHeight;
+    const bodyWidth = window.innerWidth;
+    const bodyHeight = window.innerHeight;
 
     // Calculer la position aléatoire en veillant à ce que le logo reste dans la fenêtre visible
     let randomX = Math.random() * (bodyWidth - logoWidth);  // La largeur de la page moins celle du logo
@@ -103,6 +105,7 @@ logo.addEventListener('click', function() {
 
 // Appeler la fonction pour positionner le logo de manière aléatoire à chaque fois que la page se charge
 positionRandomLogo();
+ensureLogoVisible();
 
 // Vérifier si le logo est visible et repositionner s'il est hors de la vue
 window.addEventListener('scroll', function() {
@@ -121,12 +124,12 @@ function ensureLogoVisible() {
 
     // Si le logo est hors de l'écran, on le repositionne sans transition
     if (!logoIsVisible) {
+        console.log("test");
         positionRandomLogo();
     }
 }
 
-// Vérification périodique pour s'assurer que le logo reste visible
-setInterval(ensureLogoVisible, 100);  // Vérifier toutes les 100ms
+setInterval(ensureLogoVisible, 1000);
 
 
 

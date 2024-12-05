@@ -14,20 +14,29 @@
     <main>
         <section id="parallels">
             <h2>Parallèles</h2>
-            <div class="parallel" onclick="showDetails('heart')">
+            <div class="parallel" onclick="showCaptcha('heart')">
                 <h3>❤️ Coeur</h3>
                 <p>Circulation sanguine ↔ Courants marins</p>
             </div>
-            <div class="parallel" onclick="showDetails('lungs')">
+            <div class="parallel" onclick="showCaptcha('lungs')">
                 <h3>🌬️ Poumons</h3>
                 <p>Échanges gazeux ↔ Photosynthèse</p>
             </div>
-            <div class="parallel" onclick="showDetails('plankton')">
+            <div class="parallel" onclick="showCaptcha('plankton')">
                 <h3>🌊 Plancton</h3>
                 <p>Écosystème marin essentiel ↔ Cellules du corps</p>
             </div>
         </section>
 
+        <div id="captcha-overlay"></div>
+        <div id="captcha-container">
+        <p id="captcha-taunt">Attrapez le bouton pour continuer !</p>
+        <button id="captcha-move-button" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 10px; background: #0077be; color: white; border: none; border-radius: 5px; cursor: pointer;">Cliquez-moi !</button>
+        </div>
+
+        
+
+        
         <section id="details">
             <h2>Détails</h2>
             <p id="details-content">Cliquez sur un parallèle pour en savoir plus.</p>

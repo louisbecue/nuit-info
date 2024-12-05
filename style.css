@@ -64,3 +64,51 @@ main {
     cursor: pointer;
     transition: transform 0.3s ease, top 0.3s ease, left 0.3s ease;
 }
+
+#captcha-move-button {
+    position: absolute;
+    padding: 10px;
+    background: #0077be;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#captcha-move-button:hover {
+    background: #005f9e;
+    transform: scale(1.1);
+}
+
+/* Styles pour le CAPTCHA en tant que pop-up */
+#captcha-container {
+    display: none;
+    position: fixed; /* Position fixe pour être au-dessus du reste du site */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: #f4f4f4;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* S'assurer que le CAPTCHA est au-dessus de tout */
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Ajouter une superposition sombre en arrière-plan */
+#captcha-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999; /* Derrière le CAPTCHA mais au-dessus du site */
+}
+
+

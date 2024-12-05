@@ -21,3 +21,64 @@ button.addEventListener("mouseover", () => {
     button.style.left = `${randomX}px`;
     button.style.top = `${randomY}px`;
 });
+
+function showCaptcha(parallel) {
+    const captchaContainer = document.getElementById("captcha-container");
+    const captchaOverlay = document.getElementById("captcha-overlay");
+    const movingButton = document.getElementById("captcha-move-button");
+    const tauntText = document.getElementById("captcha-taunt");
+
+    const tauntMessages = [
+        "C'est dur, hein ? 😏",
+        "Tu crois pouvoir cliquer ? Bonne chance !",
+        "Allez, encore un petit effort... ou pas.",
+        "Le bouton est plus rapide que toi !",
+        "Tu abandonnes déjà ?",
+        "Essaye encore... mais tu n'y arriveras pas !"
+    ];
+
+    // Afficher le CAPTCHA et la superposition
+    captchaContainer.style.display = "block";
+    captchaOverlay.style.display = "block";
+
+    // Réinitialiser la position du bouton
+    movingButton.style.left = "50%";
+    movingButton.style.top = "50%";
+
+    // Déplacement aléatoire lorsque la souris s'approche
+    movingButton.onmouseover = () => {
+        const containerWidth = captchaContainer.offsetWidth;
+        const containerHeight = captchaContainer.offsetHeight;
+
+        const randomX = Math.random() * (containerWidth - movingButton.offsetWidth);
+        const randomY = Math.random() * (containerHeight - movingButton.offsetHeight);
+
+        movingButton.style.left = `${randomX}px`;
+        movingButton.style.top = `${randomY}px`;
+    };
+
+    // Vérification quand le bouton est cliqué
+    movingButton.onclick = () => {
+        alert("CAPTCHA réussi !");
+        clearInterval(tauntInterval); // Stopper les phrases narquoises
+        captchaContainer.style.display = "none";
+        captchaOverlay.style.display = "none"; // Masquer la superposition
+        showDetails(parallel); // Afficher les détails après réussite
+    };
+
+    // Changer les phrases narquoises toutes les 5-6 secondes
+    const tauntInterval = setInterval(() => {
+        const randomTaunt = tauntMessages[Math.floor(Math.random() * tauntMessages.length)];
+        tauntText.textContent = randomTaunt;
+    }, 5000);
+}
+
+// Fermer le CAPTCHA si on clique en dehors
+document.getElementById("captcha-overlay").onclick = () => {
+    document.getElementById("captcha-container").style.display = "none";
+    document.getElementById("captcha-overlay").style.display = "none";
+};
+
+
+
+

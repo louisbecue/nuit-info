@@ -42,3 +42,38 @@ main {
     border-top: 1px solid #ccc;
     padding-top: 1rem;
 }
+
+#random-logo {
+    position: absolute;
+    transition: all 1s ease-in-out; /* Transition fluide pour les changements */
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+#random-logo.clicked {
+    /* Animation d'agrandissement et de rotation du logo */
+    animation: logoAnimation 1.5s ease-out forwards;
+}
+
+/* Définir l'animation du logo */
+@keyframes logoAnimation {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    25% {
+        transform: scale(4) rotate(180deg);
+    }
+    50% {
+        transform: scale(6) rotate(360deg);
+    }
+    75% {
+        transform: scale(3) rotate(540deg);
+    }
+    100% {
+        transform: scale(1) rotate(720deg);
+    }
+}
+
+
+

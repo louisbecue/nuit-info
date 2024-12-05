@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+header {
+    background: #0077be;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+main {
+    padding: 1rem;
+}
+
+#parallels {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-around;
+}
+
+.parallel {
+    border: 1px solid #0077be;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.parallel:hover {
+    background: #e0f7fa;
+}
+
+#details {
+    margin-top: 2rem;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    padding-top: 1rem;
+}

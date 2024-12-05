@@ -96,7 +96,8 @@ main {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     z-index: 1000; /* S'assurer que le CAPTCHA est au-dessus de tout */
     text-align: center;
-    overflow: hidden;
+    overflow: hidden;    
+    user-select: none; /* Empêche la sélection du texte */
 }
 
 /* Ajouter une superposition sombre en arrière-plan */

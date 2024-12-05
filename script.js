@@ -7,3 +7,17 @@ function showDetails(parallel) {
     };
     detailsContent.textContent = details[parallel] || "Sélectionnez un parallèle pour plus d'informations.";
 }
+
+// Ajouter l'effet de déplacement au bouton quand la souris passe dessus
+const button = document.getElementById("impractical-button");
+button.addEventListener("mouseover", () => {
+    const container = document.getElementById("container");
+    const containerWidth = container.offsetWidth;
+    const containerHeight = container.offsetHeight;
+
+    const randomX = Math.random() * (containerWidth - button.offsetWidth);
+    const randomY = Math.random() * (containerHeight - button.offsetHeight);
+
+    button.style.left = `${randomX}px`;
+    button.style.top = `${randomY}px`;
+});

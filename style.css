@@ -42,3 +42,25 @@ main {
     border-top: 1px solid #ccc;
     padding-top: 1rem;
 }
+
+/* Styles pour le bouton impratique */
+#container {
+    position: relative;
+    margin-top: 2rem;
+    height: 150px;
+}
+
+#impractical-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(45deg, red, yellow);
+    color: black;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease, top 0.3s ease, left 0.3s ease;
+}
